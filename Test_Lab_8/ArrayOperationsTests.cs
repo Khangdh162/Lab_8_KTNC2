@@ -4,35 +4,49 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xunit;
+using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
 namespace Test_Lab_8
 {
     [TestClass]
     public class ArrayOperationsTests
     {
-        private ArrayOperations? _arrayOperations;
+        private readonly ArrayOperations _arrayOperations;
 
-        [TestInitialize]
-        public void SetUp()
+        public ArrayOperationsTests()
         {
             _arrayOperations = new ArrayOperations();
         }
 
         [TestMethod]
-        public void TestFindMax()
+        public void FindMax_ShouldReturnMaxValue()
         {
-            int[] numbers = { 1, 2, 3, 4, 5 };
-            int result = _arrayOperations.FindMax(numbers);
+            int[] array = { 1, 2, 3, 4, 5 };
+            int result = _arrayOperations.FindMax(array);
             Assert.AreEqual(5, result);
         }
 
         [TestMethod]
-        public void TestFindMin()
+        public void FindMin_ShouldReturnMinValue()
         {
-            int[] numbers = { 1, 2, 3, 4, 5 };
-            int result = _arrayOperations.FindMin(numbers);
+            int[] array = { 1, 2, 3, 4, 5 };
+            int result = _arrayOperations.FindMin(array);
             Assert.AreEqual(1, result);
         }
-    }
 
+        [TestMethod]
+        public void FindMax_ShouldThrowExceptionWhenArrayIsEmpty()
+        {
+            int[] array = { };
+            Assert.ThrowsException<ArgumentException>(() => _arrayOperations.FindMax(array));
+        }
+
+        [TestMethod]
+        public void FindMin_ShouldThrowExceptionWhenArrayIsEmpty()
+        {
+            int[] array = { };
+            Assert.ThrowsException<ArgumentException>(() => _arrayOperations.FindMin(array));
+        }
+    }
 }

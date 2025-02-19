@@ -8,18 +8,33 @@ namespace Lab_8
 {
     public class ArrayOperations
     {
-        public int FindMax(int[] numbers)
+        public int FindMax(int[] array)
         {
-            if (numbers == null || numbers.Length == 0)
-                throw new ArgumentException("Array cannot be empty.");
-            return numbers.Max();
+            if (array == null || array.Length == 0)
+                throw new ArgumentException("Mảng không thể rỗng hoặc trống");
+
+            int max = array[0];
+            foreach (var num in array)
+            {
+                if (num > max)
+                    max = num;
+            }
+            return max;
         }
 
-        public int FindMin(int[] numbers)
+        // Phương thức tìm giá trị nhỏ nhất trong mảng
+        public int FindMin(int[] array)
         {
-            if (numbers == null || numbers.Length == 0)
-                throw new ArgumentException("Array cannot be empty.");
-            return numbers.Min();
+            if (array == null || array.Length == 0)
+                throw new ArgumentException("Mảng không thể rỗng hoặc trống");
+
+            int min = array[0];
+            foreach (var num in array)
+            {
+                if (num < min)
+                    min = num;
+            }
+            return min;
         }
     }
 
