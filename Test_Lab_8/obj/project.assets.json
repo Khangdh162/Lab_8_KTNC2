@@ -592,7 +592,6 @@
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "8.0.13",
           "NUnit": "3.13.3",
           "NUnit3TestAdapter": "4.0.0",
-          "Newtonsoft.Json": "13.0.3",
           "xunit": "2.9.3"
         },
         "compile": {
