@@ -25,6 +25,8 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: '8.0.x'
+    
+    # Cài đặt các workloads .NET (nếu cần thiết)
     - name: Update .NET workloads
       run: dotnet workload update
 
@@ -34,15 +36,15 @@ jobs:
 
     # Restore các gói NuGet
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ./Lab_8_KTNC.sln
 
     # Build dự án
     - name: Build project
-      run: dotnet build --configuration ${{ matrix.configuration }}
+      run: dotnet build --configuration ${{ matrix.configuration }} ./Lab_8_KTNC.sln
 
     # Chạy Unit Tests
     - name: Run tests
-      run: dotnet test --configuration ${{ matrix.configuration }} --no-build --verbosity normal
+      run: dotnet test --configuration ${{ matrix.configuration }} --no-build --verbosity normal ./Lab_8_KTNC.sln
 
     # Giải mã chứng chỉ ký (nếu có)
     - name: Decode the PFX certificate
@@ -51,7 +53,7 @@ jobs:
         $certificatePath = Join-Path -Path $env:Wap_Project_Directory -ChildPath GitHubActionsWorkflow.pfx
         [IO.File]::WriteAllBytes("$certificatePath", $pfx_cert_byte)
 
-    # Tạo gói ứng dụng
+    # Tạo gói ứng dụng (nếu có)
     - name: Create the app package
       run: msbuild $env:Wap_Project_Path /p:Configuration=${{ matrix.configuration }} /p:UapAppxPackageBuildMode=StoreUpload /p:PackageCertificateKeyFile=GitHubActionsWorkflow.pfx /p:PackageCertificatePassword=${{ secrets.Pfx_Key }}
 
@@ -59,7 +61,7 @@ jobs:
     - name: Remove the PFX certificate
       run: Remove-Item -path $env:Wap_Project_Directory\GitHubActionsWorkflow.pfx
 
-    # Tải lên artifact
+    # Tải lên artifact (MSIX package nếu có)
     - name: Upload build artifacts
       uses: actions/upload-artifact@v2
       with:
