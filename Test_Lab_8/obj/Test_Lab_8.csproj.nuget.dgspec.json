@@ -50,19 +50,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "MSTest.TestFramework": {
-              "target": "Package",
-              "version": "[2.2.8, )"
-            },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
               "version": "[8.0.13, )"
             },
             "Microsoft.NET.Test.Sdk": {
-              "target": "Package",
-              "version": "[17.9.0, )"
-            },
-            "Microsoft.TestPlatform": {
               "target": "Package",
               "version": "[17.9.0, )"
             },
@@ -74,15 +66,9 @@
               "target": "Package",
               "version": "[4.0.0, )"
             },
-            "xunit": {
+            "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[2.9.3, )"
-            },
-            "xunit.runner.visualstudio": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.0.2, )"
+              "version": "[13.0.3, )"
             }
           },
           "imports": [
@@ -155,23 +141,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "MSTest.TestAdapter": {
-              "target": "Package",
-              "version": "[3.1.1, )"
-            },
-            "MSTest.TestFramework": {
-              "target": "Package",
-              "version": "[3.1.1, )"
-            },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
               "version": "[8.0.13, )"
             },
             "Microsoft.NET.Test.Sdk": {
-              "target": "Package",
-              "version": "[17.9.0, )"
-            },
-            "Microsoft.TestPlatform": {
               "target": "Package",
               "version": "[17.9.0, )"
             },
@@ -182,6 +156,14 @@
             "coverlet.collector": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.9.3, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.4.3, )"
             }
           },
           "imports": [

@@ -1,15 +1,9 @@
 ﻿using Lab_8;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
-using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
+using Xunit;  // Sử dụng xUnit thay vì MSTest
 
 namespace Test_Lab_8
 {
-    [TestClass]
     public class ArrayOperationsTests
     {
         private readonly ArrayOperations _arrayOperations;
@@ -19,34 +13,34 @@ namespace Test_Lab_8
             _arrayOperations = new ArrayOperations();
         }
 
-        [TestMethod]
+        [Fact]  // Thay [TestMethod] bằng [Fact]
         public void FindMax_ShouldReturnMaxValue()
         {
             int[] array = { 1, 2, 3, 4, 5 };
             int result = _arrayOperations.FindMax(array);
-            Assert.AreEqual(5, result);
+            Assert.Equal(5, result);  // Thay Assert.AreEqual bằng Assert.Equal
         }
 
-        [TestMethod]
+        [Fact]  // Thay [TestMethod] bằng [Fact]
         public void FindMin_ShouldReturnMinValue()
         {
             int[] array = { 1, 2, 3, 4, 5 };
             int result = _arrayOperations.FindMin(array);
-            Assert.AreEqual(1, result);
+            Assert.Equal(1, result);  // Thay Assert.AreEqual bằng Assert.Equal
         }
 
-        [TestMethod]
+        [Fact]  // Thay [TestMethod] bằng [Fact]
         public void FindMax_ShouldThrowExceptionWhenArrayIsEmpty()
         {
             int[] array = { };
-            Assert.ThrowsException<ArgumentException>(() => _arrayOperations.FindMax(array));
+            Assert.Throws<ArgumentException>(() => _arrayOperations.FindMax(array));  // Thay Assert.ThrowsException bằng Assert.Throws
         }
 
-        [TestMethod]
+        [Fact]  // Thay [TestMethod] bằng [Fact]
         public void FindMin_ShouldThrowExceptionWhenArrayIsEmpty()
         {
             int[] array = { };
-            Assert.ThrowsException<ArgumentException>(() => _arrayOperations.FindMin(array));
+            Assert.Throws<ArgumentException>(() => _arrayOperations.FindMin(array));  // Thay Assert.ThrowsException bằng Assert.Throws
         }
     }
 }
