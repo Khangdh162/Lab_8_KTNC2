@@ -2065,6 +2065,7 @@
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 8.0.13",
       "NUnit >= 3.13.3",
       "NUnit3TestAdapter >= 4.0.0",
+      "Newtonsoft.Json >= 13.0.3",
       "xunit >= 2.9.3",
       "xunit.runner.visualstudio >= 3.0.2"
     ]
@@ -2134,6 +2135,10 @@
           "NUnit3TestAdapter": {
             "target": "Package",
             "version": "[4.0.0, )"
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[13.0.3, )"
           },
           "xunit": {
             "target": "Package",
